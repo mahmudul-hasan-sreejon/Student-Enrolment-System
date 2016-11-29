@@ -31,11 +31,7 @@
 		$dat_adm = mysql_real_escape_string($_POST['dat_adm']);
 		$emis_no = mysql_real_escape_string($_POST['emis_no']);
 
-		$sql="UPDATE stud_adm SET tc_issue='$tc_issue',year='$year',twnvill='$twnvill',dob='$dob',gen='$gen',religion='$religion',caste='$caste',comunit='$comunit',fname='$fname',f_ed_qua='$f_ed_qua',
-
-		/* f_add_pin='$f_add_pin',ph_no='$ph_no'*/
-
-		,cls_adm='$cls_adm',cls_sec='$cls_sec',grop_adm='$grop_adm',med_adm='$med_adm',dat_adm='$dat_adm',emis_no='$emis_no' WHERE adm_no='$adm_no'";
+		$sql="UPDATE stud_adm SET tc_issue='$tc_issue',year='$year',twnvill='$twnvill',dob='$dob',gen='$gen',religion='$religion',caste='$caste',comunit='$comunit',fname='$fname',f_ed_qua='$f_ed_qua',f_add_pin='$f_add_pin',ph_no='$ph_no',cls_adm='$cls_adm',cls_sec='$cls_sec',grop_adm='$grop_adm',med_adm='$med_adm',dat_adm='$dat_adm',emis_no='$emis_no' WHERE adm_no='$adm_no'";
 
 		$result = mysql_query($sql);
 
