@@ -10,11 +10,10 @@
 ?>
 
 <?php
-	if(isset($_GET['edit']))
-	{
-	$admno=mysql_real_escape_string($_GET['admno']);
-	$result =mysql_query("SELECT * FROM stud_adm WHERE adm_no='$admno'");
-	$row = mysql_fetch_array($result);
+	if( isset($_GET['edit']) ) {
+		$admno = mysql_real_escape_string($_GET['admno']);
+		$result = mysql_query("SELECT * FROM stud_adm WHERE adm_no='$admno'");
+		$row = mysql_fetch_array($result);
 ?>
 
 <html>
@@ -45,11 +44,12 @@
 				</TR>
 
 				<TR bgcolor='#E5F4F4'>
-					<TD><b><font color="blue">2. ADMSSION YEAR</font></b></TD>
+					<TD><b><font color="blue">2. ADMISSION YEAR</font></b></TD>
 					<TD>
 						<center>
 							<select name="year">
 								<option value="<?php echo $row['year'];?>"><?php echo $row['year'];?></option>
+								<option>--------</option>
 								<option>1992</option>
 								<option>1993</option>
 								<option>1994</option>
@@ -84,6 +84,7 @@
 						<center>
 							<select name="tc_issue" required>
 								<option value="<?php echo $row['tc_issue'];?>"><?php echo $row['tc_issue'];?></option>
+								<option>--------</option>
 								<option>ISSUED</option>
 								<option>NOT-ISSUED</option>
 							</select>
@@ -107,6 +108,7 @@
 						<center>
 							<select name="gen" required>
 								<option value="<?php echo $row['gen'];?>"><?php echo $row['gen'];?></option>
+								<option>--------</option>
 								<option>Male</option>
 								<option>Female</option>
 								<option>Other</option>
@@ -132,6 +134,7 @@
 						<center>
 							<select name="comunit" required>
 								<option value="<?php echo $row['comunit'];?>"><?php echo $row['comunit'];?></option>
+								<option>--------</option>
 								<option>None</option>
 								<option>OC</option>
 								<option>BC</option>
@@ -178,11 +181,12 @@
 			<table border="20" height="100"  cellspacing="3" cellpadding="1" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
 
 				<TR bgcolor='#E5F4F4'>
-					<TD><b><font color='blue'>11. CLASS</b></TD>
+					<TD><b><font color='blue'>11. DEPARTMENT with CLASS NO.</b></TD>
 					<TD>
 						<center>
 							<select name="cls_adm" required>
 								<option value="<?php echo $row['cls_adm'];?>"><?php echo $row['cls_adm'];?></option>
+								<option>--------</option>
 								<option>CSE</option>
 								<option>ECE</option>
 								<option>BBA</option>
@@ -190,6 +194,7 @@
 						
 							<select name="cls_sec" required>
 								<option value="<?php echo $row['cls_sec'];?>"><?php echo $row['cls_sec'];?></option>
+								<option>--------</option>
 								<option>A</option>
 								<option>B</option>
 								<option>C</option>
@@ -206,6 +211,7 @@
 						<center>
 							<select name="med_adm" required>
 								<option value="<?php echo $row['med_adm'];?>"><?php echo $row['med_adm'];?></option>
+								<option>--------</option>
 								<option>Bangla</option>
 								<option>English</option>
 							</select>
@@ -217,9 +223,10 @@
 						<center>
 							<select name="grop_adm" required>
 								<option value="<?php echo $row['grop_adm'];?>"><?php echo $row['grop_adm'];?></option>
-								<option>CSE</option>
-								<option>BBA</option>
-								<option>ECE</option>
+								<option>--------</option>
+								<option>Science</option>
+								<option>Commerce</option>
+								<option>Arts</option>
 							</select>
 						</center>
 					</TD>
@@ -247,6 +254,6 @@
 </html>
 
 <?php
-}
+	}
 	ob_end_flush();
 ?>

@@ -1,3 +1,5 @@
+<title>Student Enrolment System</title>
+
 <style type="text/css">
 	body {
 		background-color:ffffff;
@@ -8,7 +10,6 @@
 	}
 </style>
 
-<title>Student Enrolment System</title>
 <!--
 <script language="JavaScript">
 var message = "Sorry, Right click Disabled.";
