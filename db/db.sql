@@ -1,20 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 4.4.14
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Sep 30, 2016 at 04:08 PM
--- Server version: 5.6.26
--- PHP Version: 5.6.12
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `db`
@@ -26,10 +11,20 @@ SET time_zone = "+00:00";
 -- Table structure for table `extra1`
 --
 
-CREATE TABLE IF NOT EXISTS `extra1` (
+CREATE TABLE `extra1` (
   `adm_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `extra1`
+--
+
+INSERT INTO `extra1` (`adm_no`, `name`) VALUES
+('01', 'sreejon'),
+('02', 'anwar'),
+('03', 'test1'),
+('04', 'test2');
 
 -- --------------------------------------------------------
 
@@ -37,10 +32,20 @@ CREATE TABLE IF NOT EXISTS `extra1` (
 -- Table structure for table `extra2`
 --
 
-CREATE TABLE IF NOT EXISTS `extra2` (
+CREATE TABLE `extra2` (
   `adm_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `extra2`
+--
+
+INSERT INTO `extra2` (`adm_no`, `name`) VALUES
+('01', 'sreejon'),
+('02', 'anwar'),
+('03', 'test1'),
+('04', 'test2');
 
 -- --------------------------------------------------------
 
@@ -48,10 +53,20 @@ CREATE TABLE IF NOT EXISTS `extra2` (
 -- Table structure for table `extra3`
 --
 
-CREATE TABLE IF NOT EXISTS `extra3` (
+CREATE TABLE `extra3` (
   `adm_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `extra3`
+--
+
+INSERT INTO `extra3` (`adm_no`, `name`) VALUES
+('01', 'sreejon'),
+('02', 'anwar'),
+('03', 'test1'),
+('04', 'test2');
 
 -- --------------------------------------------------------
 
@@ -59,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `extra3` (
 -- Table structure for table `last_entry`
 --
 
-CREATE TABLE IF NOT EXISTS `last_entry` (
+CREATE TABLE `last_entry` (
   `id` int(1) NOT NULL,
   `adm_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
@@ -70,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `last_entry` (
 --
 
 INSERT INTO `last_entry` (`id`, `adm_no`, `name`) VALUES
-(1, '0', '0');
+(1, '04', 'test2');
 
 -- --------------------------------------------------------
 
@@ -78,7 +93,7 @@ INSERT INTO `last_entry` (`id`, `adm_no`, `name`) VALUES
 -- Table structure for table `stud_adm`
 --
 
-CREATE TABLE IF NOT EXISTS `stud_adm` (
+CREATE TABLE `stud_adm` (
   `adm_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `tc_issue` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -92,14 +107,25 @@ CREATE TABLE IF NOT EXISTS `stud_adm` (
   `comunit` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `fname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `f_ed_qua` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `f_add_pin_phno` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `cls_adm` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `cls_sec` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
   `grop_adm` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
   `med_adm` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `dat_adm` date NOT NULL,
-  `emis_no` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `emis_no` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `f_add_pin` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `ph_no` varchar(300) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `stud_adm`
+--
+
+INSERT INTO `stud_adm` (`adm_no`, `tc_issue`, `name`, `img`, `year`, `twnvill`, `dob`, `gen`, `religion`, `caste`, `comunit`, `fname`, `f_ed_qua`, `cls_adm`, `cls_sec`, `grop_adm`, `med_adm`, `dat_adm`, `emis_no`, `f_add_pin`, `ph_no`) VALUES
+('01', 'ISSUED', 'sreejon', 0x37333235343838556e7469746c65642d322e6a7067, '2012', 'Dhaka', '0000-00-00', 'Male', 'Muslim', 'None', 'None', 'Solaiman Hossain', 'Engineer', 'CSE', 'A', 'CSE', 'Bangla', '2012-03-01', '123456789', 'Mirpur 10, Dhaka, 1216', '01712356897'),
+('02', '', 'anwar', NULL, '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '', ''),
+('03', '', 'test1', NULL, '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '', ''),
+('04', '', 'test2', NULL, '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -107,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `stud_adm` (
 -- Table structure for table `stud_fee`
 --
 
-CREATE TABLE IF NOT EXISTS `stud_fee` (
+CREATE TABLE `stud_fee` (
   `adm_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `cls_adm` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
@@ -133,9 +159,19 @@ CREATE TABLE IF NOT EXISTS `stud_fee` (
 -- Table structure for table `stud_id`
 --
 
-CREATE TABLE IF NOT EXISTS `stud_id` (
+CREATE TABLE `stud_id` (
   `adm_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Contains ID for All Students';
+
+--
+-- Dumping data for table `stud_id`
+--
+
+INSERT INTO `stud_id` (`adm_no`) VALUES
+('01'),
+('02'),
+('03'),
+('04');
 
 -- --------------------------------------------------------
 
@@ -143,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `stud_id` (
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `eid` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `pwd` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `mpwd` varchar(6) COLLATE utf8_unicode_ci NOT NULL
@@ -154,8 +190,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`eid`, `pwd`, `mpwd`) VALUES
-('bstud_adm@shanmuka.in', 'shanmuka123', '456852'),
-('shanmukarajan1@gmail.com', 'shanshan', '852456');
+('admin@ist.com', '1', '1'),
+('ist@ist.com', '1', '1');
 
 --
 -- Indexes for dumped tables
@@ -208,7 +244,3 @@ ALTER TABLE `stud_id`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`eid`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
