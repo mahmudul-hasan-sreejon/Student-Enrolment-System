@@ -33,21 +33,22 @@
 
 					<TR>
 						<TD><b>ADMISSION NO.</b></TD>
-						<TD><input type="text" name="admno" style="width:150px;height:20px" required autofocus></TD>
+						<TD><center><input type="text" name="admno" style="width:190px;height:20px" required autofocus></center></TD>
 					</TR>
 
 					<TR>
 						<TD><b>STUDENT NAME</b></TD>
-						<TD><input type="text" name="name" style="width:150px;height:20px" required></TD>
+						<TD><center><input type="text" name="name" style="width:190px;height:20px" required></center></TD>
 					</TR>
 
 					<TR>
 						<TD></TD>
 						<TD>
-							&nbsp;
-							<input type="submit" name="enroll" value="Enroll" style="height:30px; width:90px">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="reset" value="Clear" style="height:30px;width:90px">
+							<center>
+								<input type="submit" name="enroll" value="Enroll" style="height:30px; width:90px">
+								&nbsp;&nbsp;
+								<input type="reset" value="Clear" style="height:30px;width:90px">
+							</center>
 						</TD>
 					</TR>
 					

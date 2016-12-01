@@ -30,7 +30,7 @@
 
 			echo "</br></br></br></br></br></br></br></br>";
 			echo "<center><h3>"."Deleted Successfully"."</h3></center>";
-			echo '<center><input type="button" style="height:30px" value="Goto Home" onclick="window.location =\'dashboard.php\'" />';
+			echo '<center><input type="button" style="height:30px" value="Go to Home" onclick="window.location =\'dashboard.php\'" />';
 		}
 		else {
 			echo "<center><h3>"."Failed to Delete / Admission Number does not Exist"."</h3></center>";

@@ -43,8 +43,8 @@
 					$result = mysql_query("SELECT * FROM user WHERE eid='$uid' AND pwd='$pwd'");
 
 					if( $row = mysql_fetch_array($result) ) {
-						$_SESSION['stduid2']=$row['eid'];
-						$_SESSION['stdpwd2']=$row['pwd'];
+						$_SESSION['stduid2'] = $row['eid'];
+						$_SESSION['stdpwd2'] = $row['pwd'];
 						header('location:dashboard.php');
 					}
 					else {

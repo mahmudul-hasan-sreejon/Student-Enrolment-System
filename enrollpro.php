@@ -36,13 +36,13 @@
 
 			echo "</br></br></br></br></br></br></br></br>";
 			echo "<center><h3>"."Enrolled Successfully"."</h3></center>";
-			echo '<center><input type="button" style="height:30px" value="Go to Home" onclick="window.location =\'dashboard.php\'" />';
+			echo '<center><input type="button" style="height:30px" value="Go to Home" onclick="window.location =\'dashboard.php\'" /></center>';
 		}
 		else {
 			echo "</br></br></br></br></br></br></br></br>";
 			echo "<center><h3>"."Admission Number already Exists / Invalid Details"."</h3></center>";
-			echo '<p><center><input type="button" style="height:70px/;width:150px" value="Retry" onclick="window.location =\'enroll.php\'" /></p>';
-			echo '<p><center><input type="button" style="height:70px/;width:150px" value="Go to Home" onclick="window.location =\'dashboard.php\'" /></p>';
+			echo '<p><center><input type="button" style="height:70px/;width:150px" value="Retry" onclick="window.location =\'enroll.php\'" /></center></p>';
+			echo '<p><center><input type="button" style="height:70px/;width:150px" value="Go to Home" onclick="window.location =\'dashboard.php\'" /></center></p>';
 		}
 	}
 	else {
