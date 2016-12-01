@@ -5,7 +5,7 @@
 	session_start();
 
 	if( (!isset($_SESSION['stduid2'])) || (!isset($_SESSION['stdpwd2'])) || (!isset($_SESSION['maspwd2'])) ) {
-		header('Location:deladmin.php') ;
+		header('Location:deladmin.php');
 	}
 ?>
 
@@ -15,7 +15,7 @@
 		$sql1 = "DELETE FROM stud_id WHERE adm_no='$admno'";
 		$result1 = mysql_query($sql1);
 
-		if($result1) {
+		if( $result1 ) {
 			$sql2 = "DELETE FROM stud_adm WHERE adm_no='$admno'";
 			$result2 = mysql_query($sql2);
 
@@ -35,14 +35,14 @@
 		else {
 			echo "<center><h3>"."Failed to Delete / Admission Number does not Exist"."</h3></center>";
 			echo '<p><center><input type="button" style="height:30px/;width:200px" value="Retry" onclick="window.location =\'enroll_num_chang.php\'" /></p>';
-			echo '<p><center><input type="button" style="height:30px/;width:200px" value="Goto Home" onclick="window.location =\'dashboard.php\'" /></p>';
+			echo '<p><center><input type="button" style="height:30px/;width:200px" value="Go to Home" onclick="window.location =\'dashboard.php\'" /></p>';
 		}
 
 	}
 	else {
 		echo "</br></br></br></br></br></br></br></br>";
 		echo "<center><h3>"."Unauthorized Entry"."</h3></center>";
-		echo '<p><center><input type="button" style="height:30px/;width:200px" value="Go to Main Page" onclick="window.location =\'dashboard.php\'" /></center></p>';
+		echo '<p><center><input type="button" style="height:30px/;width:200px" value="Go to Home" onclick="window.location =\'dashboard.php\'" /></center></p>';
 	}
 
 	ob_end_flush();

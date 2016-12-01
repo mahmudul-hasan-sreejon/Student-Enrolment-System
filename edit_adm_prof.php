@@ -5,13 +5,11 @@
 	session_start();
 
 	if( (!isset($_SESSION['stduid2'])) && (!isset($_SESSION['stdpwd2'])) ) {
-		header('Location: default.php') ;
+		header('Location: default.php');
 	}
 ?>
 
 <html>
-	<head></head>
-	<title></title>
 	<body>
 		<br><br><br>
 		<center>
