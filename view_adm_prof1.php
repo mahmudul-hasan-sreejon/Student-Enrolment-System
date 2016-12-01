@@ -5,7 +5,7 @@
 	session_start();
 
 	if( (!isset($_SESSION['stduid2'])) && (!isset($_SESSION['stdpwd2'])) ) {
-		header('Location: default.php') ;
+		header('Location: default.php');
 	}
 ?>
 
@@ -105,8 +105,6 @@
 			</table>
 
 			<br>
-
-			<!-- DONE EDITING -->
 
 			<center><b>FOR OFFICE USE</b></center>
 			<table border="20" height="100"  cellspacing="3" cellpadding="1" bordercolor='#21DBD9' bgcolor='#E5F4F4'>

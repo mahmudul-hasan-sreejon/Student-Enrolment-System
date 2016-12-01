@@ -13,8 +13,6 @@
 ?>
 
 <html>
-	<head></head>
-	<title></title>
 	<body>
 		<br><br><br><br><br><br><br><br>
 		<center>
@@ -36,9 +34,11 @@
 		</center>
 	</body>
 </html>
+
 <?php
 	ob_end_flush();
 ?>
+
 <?php
 	unset($_SESSION['maspwd2']);
 ?>

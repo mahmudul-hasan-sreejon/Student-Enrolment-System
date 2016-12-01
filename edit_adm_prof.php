@@ -5,13 +5,11 @@
 	session_start();
 
 	if( (!isset($_SESSION['stduid2'])) && (!isset($_SESSION['stdpwd2'])) ) {
-		header('Location: default.php') ;
+		header('Location: default.php');
 	}
 ?>
 
 <html>
-	<head></head>
-	<title></title>
 	<body>
 		<br><br><br>
 		<center>
@@ -56,7 +54,7 @@
 
 					while( $row = mysql_fetch_assoc($sql) ) {
 						echo "<tr bgcolor='#E5F4F4'>";
-						$admno=$row['adm_no'];
+						$admno = $row['adm_no'];
 						echo "<td width='3%'>"."<center><img width='120' height='120' src=images/student/".$row['img'].">";
 						echo "<td width='3%'>"."<center>".$row['adm_no']."</td>";
 						echo "<td width='3%'>"."<center>".$row['name']."</td>";
