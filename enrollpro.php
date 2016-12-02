@@ -15,23 +15,19 @@
 		$result1 = mysql_query($sql1);
 
 		if( $result1 ) {
-			$sql2 = "INSERT INTO stud_adm(adm_no,name) 
-			VALUES('$admno','$name')";
+			$sql2 = "INSERT INTO stud_adm(adm_no,name) VALUES('$admno','$name')";
 			$result2 = mysql_query($sql2);
 
 			$sql5 = "UPDATE last_entry SET adm_no='$admno',name='$name' WHERE id='1'";
 			$result5 = mysql_query($sql5);
 
-			$sql6 = "INSERT INTO extra1(adm_no,name) 
-			VALUES('$admno','$name')";
+			$sql6 = "INSERT INTO extra1(adm_no,name) VALUES('$admno','$name')";
 			$result6 = mysql_query($sql6);
 
-			$sql7 = "INSERT INTO extra2(adm_no,name) 
-			VALUES('$admno','$name')";
+			$sql7 = "INSERT INTO extra2(adm_no,name) VALUES('$admno','$name')";
 			$result7 = mysql_query($sql7);
 
-			$sql8 = "INSERT INTO extra3(adm_no,name) 
-			VALUES('$admno','$name')";
+			$sql8 = "INSERT INTO extra3(adm_no,name) VALUES('$admno','$name')";
 			$result8 = mysql_query($sql8);
 
 			echo "</br></br></br></br></br></br></br></br>";
