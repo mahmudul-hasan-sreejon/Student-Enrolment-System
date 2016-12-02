@@ -9,66 +9,80 @@
 	}
 ?>
 
-<?php
-	if( isset($_GET['delete']) ) {
-		$admno = mysql_real_escape_string($_GET['admno']);
-		$result = mysql_query("SELECT * FROM stud_adm WHERE adm_no='$admno'");
-		$row = mysql_fetch_array($result);
-?>
-
 <html>
 	<body>
-
 		<br><br><br><br><br>
 		<center>
-			<form action="enroll_name_del_confirm.php" method="GET">
-				<table border="20" height="100" cellspacing="5" cellpadding="5" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
-					<input type="text" name="admno" value="<?php echo $row['adm_no'];?>" hidden>
+			<?php
+				if( isset($_GET['delete']) ) {
+					/*
+					$admno = mysql_real_escape_string($_POST['admno']);
+					$name = mysql_real_escape_string($_POST['name']);
 
-					<TR>
-						<TD><b>ADMISSION NO.</b></TD>
-						<TD><center><?php echo $row['adm_no'];?></center></TD>
-					</TR>
+					$sql1 = "INSERT INTO stud_id(adm_no) VALUES('$admno')";
 
-					<TR>
-						<TD><b>PHOTO</b></TD>
-						<TD><center><?php echo "<center><img width='120' height='120' src=images/student/".$row['img'].">";?></center></TD>
-					</TR>
+					$result1 = mysql_query($sql1);
+					if( $result1 ) {
+						then ok;
+					}
+					*/
 
-					<TR>
-						<TD><b>NAME OF STUDENT</b></TD>
-						<TD><center><?php echo $row['name'];?></center></TD>
-					</TR>
+					$admno = mysql_real_escape_string($_GET['admno']);
+					$result = mysql_query("SELECT * FROM stud_adm WHERE adm_no='$admno'");
 
-					<TR>
-						<TD><b>DEPARTMENT</b></TD>
-						<TD><center><?php echo $row['cls_adm'];?></center></TD>
-					</TR>
+					$row = mysql_fetch_array($result);
+					if( mysql_num_rows($result) ) {
 
-					<TR>
-						<TD></TD>
-						<TD>
-							<center>
-								<input type="submit" value="Confirm" name="deleteconfirm" style="height:30px;width:120px">
-								&nbsp;&nbsp;
-								<input type="button" value="Cancel" style="width:120px; height:30px" onclick="window.location ='dashboard.php'">
-							</center>
-						</TD>
-					</TR>
-				</table>
-			</form>
+						echo '<form action="enroll_name_del_confirm.php" method="GET">';
+							echo "<table border=\"20\" height=\"100\" cellspacing=\"5\" cellpadding=\"5\" bordercolor='#21DBD9' bgcolor='#E5F4F4'>";
+								echo '<input type="text" name="admno" value="'.$row['adm_no'].'" hidden>';
+
+								echo "<TR>";
+									echo "<TD><b>ADMISSION NO.</b></TD>";
+									echo '<TD><center>'.$row['adm_no'].'</center></TD>';
+								echo '</TR>';
+
+								echo '<TR>';
+									echo '<TD><b>PHOTO</b></TD>';
+									echo '<TD><center>';
+									echo "<center><img width='120' height='120' src=images/student/".$row['img']."></center>";
+									echo "</center></TD>";
+								echo "</TR>";
+
+								echo "<TR>";
+									echo "<TD><b>NAME OF STUDENT</b></TD>";
+									echo "<TD><center>".$row['name']."</center></TD>";
+								echo "</TR>";
+
+								echo "<TR>";
+									echo "<TD><b>DEPARTMENT</b></TD>";
+									echo "<TD><center>".$row['cls_adm']."</center></TD>";
+								echo "</TR>";
+
+								echo "<TR>";
+									echo "<TD></TD>";
+									echo "<TD>";
+										echo "<center>";
+											echo '<input type="submit" value="Confirm" name="deleteconfirm" style="height:30px;width:120px">';
+											echo "&nbsp;&nbsp;";
+											echo '<input type="button" value="Cancel" style="width:120px; height:30px" onclick="window.location =\'dashboard.php\'">';
+										echo "</center>";
+									echo "</TD>";
+								echo "</TR>";
+							echo "</table>";
+						echo "</form>";
+
+					}
+					else {
+						echo "<br><br>";
+						echo "<center><h3>"."No Such Admission Found"."</h3></center>";
+						echo '<p><center><input type="button" style="height:30px/;width:200px" value="Retry" onclick="window.location =\'enroll_name_del.php\'" /></center></p>';
+						echo '<p><center><input type="button" style="height:30px/;width:200px" value="Go to Home" onclick="window.location =\'dashboard.php\'" /></center></p>';
+					}
+				}
+
+				ob_end_flush();
+			?>
 		</center>
 	</body>
 </html>
-
-<?php
-	}
-	else {
-		echo "<center><h3>"."No Such Admission found"."</h3></center>";
-		echo '<p><center><input type="button" style="height:30px/;width:200px" value="Retry" onclick="window.location =\'enroll_name_del.php\'" /></p>';
-		echo "</br></br>";
-		echo '<p><center><input type="button" style="height:30px/;width:200px" value="Go to Home" onclick="window.location =\'dashboard.php\'" /></p>';
-	}
-	
-	ob_end_flush();
-?>

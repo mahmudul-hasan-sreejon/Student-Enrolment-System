@@ -7,7 +7,6 @@
 	if( (!isset($_SESSION['stduid2'])) || (!isset($_SESSION['stdpwd2'])) || (!isset($_SESSION['maspwd2'])) ) {
 		header('Location: deladmin.php');
 	}
-
 ?>
 
 <html>
