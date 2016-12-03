@@ -8,7 +8,7 @@
 <body>
 	<br><br><br><br><br><br><br><br>
 	<center>
-		<table border="20" height="100" cellpadding="10" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
+		<table border="20" height="100" cellspacing="10" cellpadding="10" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
 			<form action="deladmin.php" method="POST" autocomplete="off">
 
 				<TR>

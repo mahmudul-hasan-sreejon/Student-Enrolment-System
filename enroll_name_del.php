@@ -26,7 +26,7 @@
 		<br><br><br><br><br>
 
 		<center>
-			<input type="button"  style="height:40px;width:200px" value="Go to Home" onclick="window.location ='dashboard.php'">
+			<input type="button" style="height:40px;width:200px" value="Go to Home" onclick="window.location ='dashboard.php'">
 
 			<br><br>
 

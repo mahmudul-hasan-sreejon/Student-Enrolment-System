@@ -11,7 +11,7 @@
 			<img draggable='false' width='100' height='100' src=images/background/logo.png>
 			<h2>Institute of Science and Technology<h2>
 			<h3>Student Enrolment System</h3>
-			<table border="20" height="100" cellpadding="10" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
+			<table border="20" height="100" cellspacing="10" cellpadding="10" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
 				<form action="default.php" method="POST" autocomplete="off">
 
 					<TR>

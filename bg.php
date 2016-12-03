@@ -9,20 +9,24 @@
 		background-attachment: fixed;
 	}
 
-	input[type=text], input[type="password"]:focus {
-	    border: 3px solid #555;
+	textarea {
+	    border: 2px solid #ccc;
+	    box-sizing: border-box;
+	    background-color: #f8f8f8;
+	    resize: none;
 	}
-	
-	/*
-	input[type=button], input[type=submit], input[type=reset] {
-	    background-color: #4CAF50;
-	    border: none;
-	    color: white;
-	    padding: 16px 32px;
-	    text-decoration: none;
-	    margin: 4px 2px;
-	    cursor: pointer;
+
+	table {
+		border-color: #57b574;
+		background-color: #57b574;
+		border: 20;
 	}
-	*/
+
+	tr:nth-child(even) {
+		background-color: #eaeaea;
+	}
+	tr:nth-child(odd) {
+		background-color: #f2f2f2;
+	}
 
 </style>
