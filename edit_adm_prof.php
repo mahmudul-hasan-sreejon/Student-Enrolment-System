@@ -13,7 +13,7 @@
 	<body>
 		<br><br><br>
 		<center>
-			<input type="button"  style="height:40px;width:200px" value="Go to Home" onclick="window.location ='dashboard.php'">
+			<input type="button" style="height:40px;width:200px" value="Go to Home" onclick="window.location ='dashboard.php'">
 			<h3>Search by Admission Number</h3>
 
 			<table border="10" height="100" cellspacing="10" cellpadding="10" bordercolor='#21DBD9' bgcolor='#E5F4F4'>

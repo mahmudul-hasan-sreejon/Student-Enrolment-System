@@ -9,251 +9,260 @@
 	}
 ?>
 
-<?php
-	if( isset($_GET['edit']) ) {
-		$admno = mysql_real_escape_string($_GET['admno']);
-		$result = mysql_query("SELECT * FROM stud_adm WHERE adm_no='$admno'");
-		$row = mysql_fetch_array($result);
-?>
-
 <html>
 	<body>
-		<center>
-			<?php
-				echo "<center><img style='border:8px solid grey' width='120' height='120' src=images/student/".$row['img'].">";
-				echo "</a>";
-			?>
+		<?php
+			if( isset($_GET['edit']) ) {
+				$admno = mysql_real_escape_string($_GET['admno']);
+				$result = mysql_query("SELECT * FROM stud_adm WHERE adm_no='$admno'");
+				$row = mysql_fetch_array($result);
+				if( mysql_num_rows($result) ) {
+					echo "<center>";
 
-			<form action="ph_upload.php" method="POST" enctype="multipart/form-data">
-			Add/Change Photo <input type="file" name="image" required style="width:180px">
-				<input type="text" name="adm_no" value="<?php echo $row['adm_no'];?>" hidden>
-				<input type="submit" value="Refresh" name="phupd" style="height:30px;width:100px">
-			</form>
+					echo "<center><img style='border:8px solid grey' width='120' height='120' src=images/student/".$row['img'].">";
+					echo "</a>";
 
-			<form action="edit_adm_prof_pro1.php" method="POST">
-				<input type="text" name="adm_no" value="<?php echo $row['adm_no'];?>" hidden>
-				<b>ADMISSION NO.</b>
-				<b><font color="red"><?php echo $row['adm_no'];?></font></b>
+					echo '<form action="ph_upload.php" method="POST" enctype="multipart/form-data">';
+						echo 'Add/Change Photo <input type="file" name="image" required style="width:180px">';
+						echo '<input type="text" name="adm_no" value="'.$row['adm_no'].'" hidden>';
+						echo '<input type="submit" value="Refresh" name="phupd" style="height:30px;width:100px">';
+					echo "</form>";
 
-				<table border="20" width="700" height="100" cellspacing="3" cellpadding="1" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
+					echo '<form action="edit_adm_prof_pro1.php" method="POST">';
+						echo '<input type="text" name="adm_no" value="'.$row['adm_no'].'" hidden>';
+						echo "<b>ADMISSION NO.</b>";
+						echo '<b><font color="red">'.$row['adm_no'].'</font></b>';
 
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color="blue">1. NAME OF STUDENT</b></TD>
-						<TD><center><?php echo $row['name'];?></center></TD>
-					</TR>
+						echo "<table border=\"20\" width=\"700\" height=\"100\" cellspacing=\"3\" cellpadding=\"1\" bordercolor='#21DBD9' bgcolor='#E5F4F4'>";
 
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color="blue">2. ADMISSION YEAR</font></b></TD>
-						<TD>
-							<center>
-								<select name="year">
-									<option value="<?php echo $row['year'];?>"><?php echo $row['year'];?></option>
-									<option>--------</option>
-									<option>1992</option>
-									<option>1993</option>
-									<option>1994</option>
-									<option>1995</option>
-									<option>1996</option>
-									<option>1997</option>
-									<option>1998</option>
-									<option>1999</option>
-									<option>2000</option>
-									<option>2001</option>
-									<option>2002</option>
-									<option>2003</option>
-									<option>2004</option>
-									<option>2005</option>
-									<option>2006</option>
-									<option>2007</option>
-									<option>2008</option>
-									<option>2009</option>
-									<option>2010</option>
-									<option>2011</option>
-									<option>2012</option>
-									<option>2013</option>
-									<option>2014</option>
-								</select>
-							</center>
-						</TD>
-					</TR>
-				
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color="blue">3. TRANSFER CERTIFICATE</b></TD>
-						<TD>
-							<center>
-								<select name="tc_issue" required>
-									<option value="<?php echo $row['tc_issue'];?>"><?php echo $row['tc_issue'];?></option>
-									<option>--------</option>
-									<option>ISSUED</option>
-									<option>NOT-ISSUED</option>
-								</select>
-							</center>
-						</TD>
-					</TR>
+							echo "<TR bgcolor='#E5F4F4'>";
+								echo '<TD><b><font color="blue">1. NAME OF STUDENT</b></TD>';
+								echo '<TD><center>'.$row['name'].'</center></TD>';
+							echo '</TR>';
 
-					<TR bgcolor='#E5F4F4'>
-						<TD bgcolor='#E5F4F4'><b><font color='blue'>4. NAME OF THE VILLAGE / TOWN</b></TD>
-						<TD><center><input type="text" name="twnvill" value="<?php echo $row['twnvill'];?>" required maxlength="30"></center></TD>
-					</TR>
-
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>5. DATE OF BIRTH</b></TD>
-						<TD><center><input type="date" name="dob" value="<?php echo $row['dob'];?>" required></center></TD>
-					</TR>
-
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>6. GENDER</b></TD>
-						<TD>
-							<center>
-								<select name="gen" required>
-									<option value="<?php echo $row['gen'];?>"><?php echo $row['gen'];?></option>
-									<option>--------</option>
-									<option>Male</option>
-									<option>Female</option>
-									<option>Other</option>
-								</select>
-							</center>
-						</TD>
-					</TR>
-
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>7. RELIGION</b></TD>
-						<TD><center><input type="text" name="religion" value="<?php echo $row['religion'];?>" required maxlength="15"></center></TD>
-					</TR>
-
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>8. CASTE</b></TD>
-						<TD><center><input type="text" name="caste" value="<?php echo $row['caste'];?>" required maxlength="40"></center></TD>
-					</TR>
-
-
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>9. COMMUNITY</b></TD>
-						<TD>
-							<center>
-								<select name="comunit" required>
-									<option value="<?php echo $row['comunit'];?>"><?php echo $row['comunit'];?></option>
-									<option>--------</option>
-									<option>None</option>
-									<option>OC</option>
-									<option>BC</option>
-									<option>MBC</option>
-									<option>SC</option>
-									<option>ST</option>
-								</select>
-							</center>
-						</TD>
-					</TR>
-
-				</table>
-
-				<br>
-
-				<table border="20" width="700" height="100" cellspacing="3" cellpadding="1" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
-					<center><b>10. LIVING WITH PARENTS / GUARDIAN</center>
-
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>(a) Name of the Parent / Guardian</b></TD>
-						<TD><center><input type="text" name="fname" value="<?php echo $row['fname'];?>" required maxlength="50"></center></TD>
-					</TR>
-
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>(b) Parent / Guardian's Occupation</b></TD>
-						<TD><center><textarea name="f_ed_qua" rows="4" cols="27" required maxlength="100"><?php echo $row['f_ed_qua'];?></textarea></center></TD>
-					</TR>
-
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>(c) Full Address with Post No.</b></TD>
-						<TD><center><textarea name="f_add_pin" rows="4" cols="27" required maxlength="100"><?php echo $row['f_add_pin'];?></textarea></center></TD>
-					</TR>
-					
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>(d) Contact No.</b></TD>
-						<TD><center><input type="text" name="ph_no" value="<?php echo $row['ph_no'];?>" required maxlength="18"></center></TD>
-					</TR>
-
-				</table>
-
-				<br>
-
-				<center><b>FOR OFFICE USE</b></center>
-				<table border="20" height="100"  cellspacing="3" cellpadding="1" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
-
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>11. DEPARTMENT WITH CLASS NO.</b></TD>
-						<TD>
-							<center>
-								<select name="cls_adm" required>
-									<option value="<?php echo $row['cls_adm'];?>"><?php echo $row['cls_adm'];?></option>
-									<option>--------</option>
-									<option>CSE</option>
-									<option>ECE</option>
-									<option>BBA</option>
-								</select>
+							echo "<TR bgcolor='#E5F4F4'>";
+								echo '<TD><b><font color="blue">2. ADMISSION YEAR</font></b></TD>';
+								echo "<TD>";
+									echo "<center>";
+										echo '<select name="year">';
+											echo '<option value="'.$row['year'].'">'.$row['year'].'</option>';
+											echo "<option>--------</option>";
+											echo "<option>1992</option>";
+											echo "<option>1993</option>";
+											echo "<option>1994</option>";
+											echo "<option>1995</option>";
+											echo "<option>1996</option>";
+											echo "<option>1997</option>";
+											echo "<option>1998</option>";
+											echo "<option>1999</option>";
+											echo "<option>2000</option>";
+											echo "<option>2001</option>";
+											echo "<option>2002</option>";
+											echo "<option>2003</option>";
+											echo "<option>2004</option>";
+											echo "<option>2005</option>";
+											echo "<option>2006</option>";
+											echo "<option>2007</option>";
+											echo "<option>2008</option>";
+											echo "<option>2009</option>";
+											echo "<option>2010</option>";
+											echo "<option>2011</option>";
+											echo "<option>2012</option>";
+											echo "<option>2013</option>";
+											echo "<option>2014</option>";
+										echo "</select>";
+									echo "</center>";
+								echo "</TD>";
+							echo "</TR>";
 							
-								<select name="cls_sec" required>
-									<option value="<?php echo $row['cls_sec'];?>"><?php echo $row['cls_sec'];?></option>
-									<option>--------</option>
-									<option>A</option>
-									<option>B</option>
-									<option>C</option>
-									<option>D</option>
-									<option>E</option>
-									<option>F</option>
-									<option>G</option>
-								</select>
-							</center>
-						</TD>
+							echo "<TR bgcolor='#E5F4F4'>";
+								echo '<TD><b><font color="blue">3. TRANSFER CERTIFICATE</b></TD>';
+								echo "<TD>";
+									echo "<center>";
+										echo '<select name="tc_issue" required>';
+											echo '<option value="'.$row['tc_issue'].'">'.$row['tc_issue'].'</option>';
+											echo "<option>--------</option>";
+											echo "<option>ISSUED</option>";
+											echo "<option>NOT-ISSUED</option>";
+										echo "</select>";
+									echo "</center>";
+								echo "</TD>";
+							echo "</TR>";
 
-						<TD><b><font color='blue'>12. MEDIUM</b></TD>
-						<TD>
-							<center>
-								<select name="med_adm" required>
-									<option value="<?php echo $row['med_adm'];?>"><?php echo $row['med_adm'];?></option>
-									<option>--------</option>
-									<option>Bangla</option>
-									<option>English</option>
-								</select>
-							</center>
-						</TD>
+							echo "<TR bgcolor='#E5F4F4'>";
+								echo "<TD bgcolor='#E5F4F4'><b><font color='blue'>4. NAME OF THE VILLAGE / TOWN</b></TD>";
+								echo '<TD><center><input type="text" name="twnvill" value="'.$row['twnvill'].'" required maxlength="30"></center></TD>';
+							echo "</TR>";
 
-						<TD><b><font color='blue'>13. GROUP</b></TD>
-						<TD>
-							<center>
-								<select name="grop_adm" required>
-									<option value="<?php echo $row['grop_adm'];?>"><?php echo $row['grop_adm'];?></option>
-									<option>--------</option>
-									<option>Science</option>
-									<option>Commerce</option>
-									<option>Arts</option>
-								</select>
-							</center>
-						</TD>
-					</TR>
+							echo "<TR bgcolor='#E5F4F4'>";
+								echo "<TD><b><font color='blue'>5. DATE OF BIRTH</b></TD>";
+								echo '<TD><center><input type="date" name="dob" value="'.$row['dob'].'" required></center></TD>';
+							echo "</TR>";
 
-					<TR bgcolor='#E5F4F4'>
-						<TD><b><font color='blue'>14. DATE OF ADMISSION</b></TD>
-						<TD><center><input type="date" name="dat_adm" value="<?php echo $row['dat_adm'];?>" required></center></TD>
-						<TD><b><font color='blue'>15. EMIS Number</b></TD>
-						<TD><center><input type="text" name="emis_no" value="<?php echo $row['emis_no'];?>"></center></TD>
-					</TR>
+							echo "<TR bgcolor='#E5F4F4'>";
+								echo "<TD><b><font color='blue'>6. GENDER</b></TD>";
+								echo "<TD>";
+									echo "<center>";
+										echo '<select name="gen" required>';
+											echo '<option value="'.$row['gen'].'">'.$row['gen'].'</option>';
+											echo "<option>--------</option>";
+											echo "<option>Male</option>";
+											echo "<option>Female</option>";
+											echo "<option>Other</option>";
+										echo "</select>";
+									echo "</center>";
+								echo "</TD>";
+							echo "</TR>";
 
-				</table>
+							echo "<TR bgcolor='#E5F4F4'>";
+								echo "<TD><b><font color='blue'>7. RELIGION</b></TD>";
+								echo '<TD><center><input type="text" name="religion" value="'.$row['religion'].'" required maxlength="15"></center></TD>';
+							echo "</TR>";
 
-				<br>
+							echo "<TR bgcolor='#E5F4F4'>";
+								echo "<TD><b><font color='blue'>8. CASTE</b></TD>";
+								echo '<TD><center><input type="text" name="caste" value="'.$row['caste'].'" required maxlength="40"></center></TD>';
+							echo "</TR>";
 
-				<table height="50" cellspacing="3" cellpadding="8" bordercolor='#21DBD9' bgcolor='#E5F4F4'>
-					<TR bgcolor='#E5F4F4'>
-						<TD><center><input type="submit" value="Save" name="upd" style="height:30px;width:130px"></center></TD>
-						<TD><center><input type="button" value="Cancel" style="width:120px; height:30px" onclick="window.location ='dashboard.php'"></center></TD>
-					</TR>
-				</table>
-			</form>
-		</center>
+
+							echo "<TR bgcolor='#E5F4F4'>";
+								echo "<TD><b><font color='blue'>9. COMMUNITY</b></TD>";
+								echo "<TD>";
+									echo "<center>";
+										echo '<select name="comunit" required>';
+											echo '<option value="'.$row['comunit'].'">'.$row['comunit'].'</option>';
+											echo "<option>--------</option>";
+											echo "<option>None</option>";
+											echo "<option>OC</option>";
+											echo "<option>BC</option>";
+											echo "<option>MBC</option>";
+											echo "<option>SC</option>";
+											echo "<option>ST</option>";
+										echo "</select>";
+									echo "</center>";
+								echo "</TD>";
+							echo "</TR>";
+
+						echo "</table>";
+
+							echo "<br>";
+
+							echo '<table border="20" width="700" height="100" cellspacing="3" cellpadding="1" bordercolor=\'#21DBD9\' bgcolor=\'#E5F4F4\'>';
+								echo "<center><b>10. LIVING WITH PARENTS / GUARDIAN</center>";
+
+								echo "<TR bgcolor='#E5F4F4'>";
+									echo "<TD><b><font color='blue'>(a) Name of the Parent / Guardian</b></TD>";
+									echo '<TD><center><input type="text" name="fname" value="'.$row['fname'].'" required maxlength="50"></center></TD>';
+								echo "</TR>";
+
+								echo "<TR bgcolor='#E5F4F4'>";
+									echo "<TD><b><font color='blue'>(b) Parent / Guardian's Occupation</b></TD>";
+									echo '<TD><center><textarea name="f_ed_qua" rows="4" cols="27" required maxlength="100">'.$row['f_ed_qua'].'</textarea></center></TD>';
+								echo "</TR>";
+
+								echo "<TR bgcolor='#E5F4F4'>";
+									echo "<TD><b><font color='blue'>(c) Full Address with Post No.</b></TD>";
+									echo '<TD><center><textarea name="f_add_pin" rows="4" cols="27" required maxlength="100">'.$row['f_add_pin'].'</textarea></center></TD>';
+								echo "</TR>";
+								
+								echo "<TR bgcolor='#E5F4F4'>";
+									echo "<TD><b><font color='blue'>(d) Contact No.</b></TD>";
+									echo '<TD><center><input type="text" name="ph_no" value="'.$row['ph_no'].'" required maxlength="18"></center></TD>';
+								echo "</TR>";
+
+							echo "</table>";
+
+							echo "<br>";
+
+							echo "<center><b>FOR OFFICE USE</b></center>";
+
+							/* DONE EDINTING */
+
+							echo '<table border="20" height="100"  cellspacing="3" cellpadding="1" bordercolor=\'#21DBD9\' bgcolor=\'#E5F4F4\'>';
+
+								echo "<TR bgcolor='#E5F4F4'>";
+									echo "<TD><b><font color='blue'>11. DEPARTMENT WITH CLASS NO.</b></TD>";
+									echo "<TD>";
+										echo "<center>";
+											echo '<select name="cls_adm" required>';
+												echo '<option value="'.$row['cls_adm'].'">'.$row['cls_adm'].'</option>';
+												echo "<option>--------</option>";
+												echo "<option>CSE</option>";
+												echo "<option>ECE</option>";
+												echo "<option>BBA</option>";
+											echo "</select>";
+										
+											echo '<select name="cls_sec" required>';
+												echo '<option value="'.$row['cls_sec'].'">'.$row['cls_sec'].'</option>';
+												echo "<option>--------</option>";
+												echo "<option>A</option>";
+												echo "<option>B</option>";
+												echo "<option>C</option>";
+												echo "<option>D</option>";
+												echo "<option>E</option>";
+												echo "<option>F</option>";
+												echo "<option>G</option>";
+											echo "</select>";
+										echo "</center>";
+									echo "</TD>";
+
+									echo "<TD><b><font color='blue'>12. MEDIUM</b></TD>";
+									echo "<TD>";
+										echo "<center>";
+											echo '<select name="med_adm" required>';
+												echo '<option value="'.$row['med_adm'].'">'.$row['med_adm'].'</option>';
+												echo "<option>--------</option>";
+												echo "<option>Bangla</option>";
+												echo "<option>English</option>";
+											echo "</select>";
+										echo "</center>";
+									echo "</TD>";
+
+									echo "<TD><b><font color='blue'>13. GROUP</b></TD>";
+									echo "<TD>";
+										echo "<center>";
+											echo '<select name="grop_adm" required>';
+												echo '<option value="'.$row['grop_adm'].'">'.$row['grop_adm'].'</option>';
+												echo "<option>--------</option>";
+												echo "<option>Science</option>";
+												echo "<option>Commerce</option>";
+												echo "<option>Arts</option>";
+											echo "</select>";
+										echo "</center>";
+									echo "</TD>";
+								echo "</TR>";
+
+								echo "<TR bgcolor='#E5F4F4'>";
+									echo "<TD><b><font color='blue'>14. DATE OF ADMISSION</b></TD>";
+									echo '<TD><center><input type="date" name="dat_adm" value="'.$row['dat_adm'].'" required></center></TD>';
+									echo "<TD><b><font color='blue'>15. EMIS Number</b></TD>";
+									echo '<TD><center><input type="text" name="emis_no" value="'.$row['emis_no'].'"></center></TD>';
+								echo "</TR>";
+
+							echo "</table>";
+
+							echo "<br>";
+
+							echo '<table height="50" cellspacing="3" cellpadding="8" bordercolor=\'#21DBD9\' bgcolor=\'#E5F4F4\'>';
+								echo "<TR bgcolor='#E5F4F4'>";
+									echo '<TD><center><input type="submit" value="Save" name="upd" style="height:30px;width:130px"></center></TD>';
+									echo '<TD><center><input type="button" value="Cancel" style="width:120px; height:30px" onclick="window.location =\'dashboard.php\'"></center></TD>';
+								echo "</TR>";
+							echo "</table>";
+						echo "</form>";
+					echo "</center>";
+				}
+				else {
+					echo "</br></br></br></br></br></br></br></br>";
+					echo "<center><h3>"."Admission Number not Found"."</h3></center>";
+					echo '<p><center><input type="button" style="height:70px/;width:150px" value="Retry" onclick="window.location =\'edit_adm_prof.php\'" /></center></p>';
+					echo '<p><center><input type="button" style="height:70px/;width:150px" value="Go to Home" onclick="window.location =\'dashboard.php\'" /></center></p>';
+				}
+			}
+		?>	
 	</body>
 </html>
 
 <?php
-	}
 	ob_end_flush();
 ?>

@@ -15,24 +15,10 @@
 		<center>
 			<?php
 				if( isset($_GET['delete']) ) {
-					/*
-					$admno = mysql_real_escape_string($_POST['admno']);
-					$name = mysql_real_escape_string($_POST['name']);
-
-					$sql1 = "INSERT INTO stud_id(adm_no) VALUES('$admno')";
-
-					$result1 = mysql_query($sql1);
-					if( $result1 ) {
-						then ok;
-					}
-					*/
-
 					$admno = mysql_real_escape_string($_GET['admno']);
 					$result = mysql_query("SELECT * FROM stud_adm WHERE adm_no='$admno'");
-
 					$row = mysql_fetch_array($result);
 					if( mysql_num_rows($result) ) {
-
 						echo '<form action="enroll_name_del_confirm.php" method="GET">';
 							echo "<table border=\"20\" height=\"100\" cellspacing=\"5\" cellpadding=\"5\" bordercolor='#21DBD9' bgcolor='#E5F4F4'>";
 								echo '<input type="text" name="admno" value="'.$row['adm_no'].'" hidden>';
@@ -71,7 +57,6 @@
 								echo "</TR>";
 							echo "</table>";
 						echo "</form>";
-
 					}
 					else {
 						echo "<br><br>";
