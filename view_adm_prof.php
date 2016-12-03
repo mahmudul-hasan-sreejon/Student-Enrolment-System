@@ -10,8 +10,6 @@
 ?>
 
 <html>
-	<head></head>
-	<title></title>
 	<body>
 		<br><br><br>
 		<center>
